@@ -1,7 +1,27 @@
 <template>
   <div class="home">
     <div class="container">
-      <div class="header">Header</div>
+      <div class="header">
+        <div>
+          <SimpleSwitch></SimpleSwitch>
+          <input
+            v-model="selectedTheme"
+            id="light-theme"
+            type="radio"
+            name="theme"
+            value="light"
+          />
+          <label for="light-theme">light</label>
+          <input
+            v-model="selectedTheme"
+            id="dark-theme"
+            type="radio"
+            name="theme"
+            value="dark"
+          />
+          <label for="dark-theme">dark</label>
+        </div>
+      </div>
       <div class="left-sidebar">
         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
         eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
@@ -35,9 +55,27 @@
 </template>
 
 <script>
+import SimpleSwitch from "../components/SimpleSwitch";
 export default {
   name: "Home",
-  components: {},
+  components: {
+    SimpleSwitch,
+  },
+  data() {
+    return {
+      selectedTheme: "light",
+    };
+  },
+  methods: {
+    switchTheme(theme) {
+      document.documentElement.setAttribute("data-theme", theme);
+    },
+  },
+  watch: {
+    selectedTheme(theme) {
+      this.switchTheme(theme);
+    },
+  },
 };
 </script>
 

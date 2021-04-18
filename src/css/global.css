@@ -1,4 +1,34 @@
+:root {
+  --primary: #6610f2;
+  --secondary: #6c757d;
+  --success: #198754;
+  --info: #0dcaf0;
+  --warning: #ffc107;
+  --danger: #dc3545;
+  --font-color: #000000;
+  --bg-color: #ffffff;
+}
+
+[data-theme="dark"] {
+  --primary: #6610f2;
+  --secondary: #6c757d;
+  --success: #198754;
+  --info: #0dcaf0;
+  --warning: #ffc107;
+  --danger: #dc3545;
+  --font-color: #ffffff;
+  --bg-color: #1a1a1a;
+}
+
 body {
   margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  color: var(--font-color);
+  font-size: 1rem;
   font-family: Avenir, Helvetica, Arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5 {
+  color: var(--font-color);
 }
